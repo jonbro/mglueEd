@@ -1,0 +1,43 @@
+<div id="flems"
+</div>
+<script src="https://next.flems.io/flems.html" type="text/javascript" charset="utf-8"></script>
+<script>
+  var xmlhttp;
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      updateFlemsWithContent(xmlhttp.responseText);
+    }
+  }
+  xmlhttp.open("GET", "emptyGame.ts", true);
+  xmlhttp.send();
+  var updateFlemsWithContent = function(content)
+  {
+  window.Flems(flems, {
+    autoReload: false,
+    linkTabs:false,
+    fileTabs:false,
+    files: [{
+      name: 'game.ts',
+      compiler: 'ts',
+      content: content
+    },
+    {
+      name: 'index.html',
+      content: '<div style="width:100%;max-width:640px;" id="displayDiv"><canvas id="display" tabindex="-1"></canvas></div>'
+    }],
+    links: [{
+      name: 'mglue',
+      type: 'js',
+      url: 'https://unpkg.com/mglue'
+    },
+    {
+      name: 'c',
+      type: 'css',
+      url: 'https://raw.githubusercontent.com/jonbro/mglueTemplate/master/public/index.css'
+    }]
+  });
+  }
+  console.log(flems);
+</script>
