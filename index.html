@@ -14,7 +14,7 @@
   xmlhttp.send();
   var updateFlemsWithContent = function(content)
   {
-  window.Flems(flems, {
+  window.f = window.Flems(document.body, {
     autoReload: false,
     linkTabs:false,
     fileTabs:false,
@@ -39,5 +39,7 @@
     }]
   });
   }
-  console.log(flems);
+  // now in this case, the f contains some helpful functions
+  // you can get back the state of the window, change it to new values,
+  // reload the target, etc, etc
 </script>
