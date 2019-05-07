@@ -1,5 +1,4 @@
-import * as m from "mglue";
-import { Vector, Color, Keyboard, Random, TextDrawer, Sound } from "mglue";
+let m = mglue;
 
 class BasicGame extends m.Game
 {
